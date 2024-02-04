@@ -1,5 +1,10 @@
 package indigo
 
+import (
+	"io/ioutil"
+	"strings"
+)
+
 var Selectors = map[string]string{
 	"departureTime":    ".flight-departure-time > span",
 	"arrivalTime":      ".flight-arrival-time > span",
@@ -24,3 +29,14 @@ var ResultsNotFoundSelector = "div.no-search-found__desc"
 var ResultsSelector = "div.search-result-page__search-results__list__item"
 
 var DefaultURL = "https://goindigo.com"
+
+var CitiesMap = func() map[string]string {
+	cityMap := map[string]string{}
+	content, _ := ioutil.ReadFile("airports.txt")
+	fileContent := strings.Split(string(content), ";")
+	for _, city := range fileContent {
+		cityWithNoCode := strings.Split(city, "(")[0]
+		cityMap[cityWithNoCode] = city
+	}
+	return cityMap
+}

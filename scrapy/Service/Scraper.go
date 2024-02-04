@@ -3,9 +3,9 @@ package service
 import (
 	"fmt"
 
-	dto "github.com/balancedDust/scrapy/Dto"
-	scrapper "github.com/balancedDust/scrapy/Scrapper"
-	indigo "github.com/balancedDust/scrapy/Scrapper/Indigo"
+	dto "github.com/balancedDust/scrapy/dto"
+	scrapper "github.com/balancedDust/scrapy/scrapper"
+	indigo "github.com/balancedDust/scrapy/scrapper/indigo"
 )
 
 const defaultWait float64 = 300.0

@@ -68,4 +68,5 @@ func (s *Scraper) Goto(url string) *Scraper {
 func (s *Scraper) Finish() {
 	s.Page.Close()
 	s.browser.Close()
+	s.playwright.Stop()
 }
